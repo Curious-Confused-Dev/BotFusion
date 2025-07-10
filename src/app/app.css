@@ -1,1 +1,154 @@
 /* Custom styles will go here */
+
+.botfusion-container {
+  max-width: 480px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.botfusion-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.settings {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+.settings label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  gap: 4px;
+}
+.settings input[type="password"] {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.settings select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.clear-btn {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.2s, border 0.2s;
+}
+.clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.clear-btn:not(:disabled):hover {
+  background: #ffeaea;
+  border: 1px solid #ffb3b3;
+}
+
+.error-banner {
+  background: #ffeaea;
+  color: #b30000;
+  border: 1px solid #ffb3b3;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.chat-display {
+  min-height: 120px;
+  background: #f7f7fa;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1rem;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  scroll-behavior: smooth;
+}
+.chat-message {
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 90%;
+  word-break: break-word;
+}
+.chat-message.user {
+  background: #e3f0ff;
+  align-self: flex-end;
+}
+.chat-message.ai {
+  background: #e8ffe3;
+  align-self: flex-start;
+}
+
+.prompt-form {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+.prompt-form textarea {
+  flex: 1;
+  min-height: 40px;
+  max-height: 100px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  font-size: 1rem;
+  resize: vertical;
+}
+.prompt-form button {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #0078d4;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.prompt-form button:hover {
+  background: #005fa3;
+}
+
+.about {
+  margin-top: 24px;
+  background: #f7f7fa;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.98rem;
+  color: #444;
+}
+.about h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #0078d4;
+}
+.about code {
+  background: #eee;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.95em;
+}

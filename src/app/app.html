@@ -1,1 +1,51 @@
+<div class="botfusion-container">
+  <h1>🤖 BOTFUSION</h1>
+  <form class="settings" autocomplete="off">
+    <label>
+      Model:
+      <select [value]="model()" (change)="onModelChange($event)">
+        <option value="openai">OpenAI (ChatGPT)</option>
+        <option value="claude">Anthropic Claude</option>
+        <option value="azure">Azure OpenAI</option>
+      </select>
+    </label>
+    <label>
+      API Key:
+      <input type="password" placeholder="Enter your API key" [value]="apiKey()" (input)="onApiKeyChange($event)" />
+    </label>
+    <button type="button" class="clear-btn" (click)="clearChat()" [disabled]="!chat().length">Clear Chat</button>
+  </form>
 
+  <div *ngIf="error()" class="error-banner">
+    {{ error() }}
+  </div>
+
+  <div class="chat-display" #chatDisplay>
+    <ng-container *ngIf="chat().length; else noMessages">
+      <div *ngFor="let msg of chat()" class="chat-message" [ngClass]="msg.role">
+        <span *ngIf="msg.role === 'user'">You:</span>
+        <span *ngIf="msg.role === 'ai'">{{ model() | titlecase }}:</span>
+        {{ msg.content }}
+      </div>
+    </ng-container>
+    <ng-template #noMessages>
+      <div style="color: #888; text-align: center;">No messages yet. Start the conversation!</div>
+    </ng-template>
+    <div *ngIf="loading()" style="text-align:center; color:#0078d4; margin-top:8px;">Thinking...</div>
+  </div>
+
+  <form class="prompt-form" autocomplete="off" (submit)="onSend($event)">
+    <textarea placeholder="Type your prompt here..." [value]="prompt()" (input)="onPromptChange($event)" [disabled]="loading()"></textarea>
+    <button type="submit" [disabled]="loading() || !prompt().trim()">Send</button>
+  </form>
+
+  <div class="about">
+    <h3>About BOTFUSION</h3>
+    <ul>
+      <li>Supports OpenAI, Claude, and Azure OpenAI (no backend needed).</li>
+      <li>Enter your API key for the selected model.</li>
+      <li>For Azure, use: <code>&lt;endpoint&gt;|&lt;deployment&gt;|&lt;api-key&gt;</code></li>
+      <li>All chat runs in your browser. Your keys are never sent anywhere else.</li>
+    </ul>
+  </div>
+</div>
